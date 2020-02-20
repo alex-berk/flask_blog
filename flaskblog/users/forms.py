@@ -22,6 +22,7 @@ class RegistrationForm(FlaskForm):
 		if User.query.filter_by(email=email.data).first():
 			raise ValidationError('Email already exists')
 
+# TODO: add cookies to remember useres
 class LoginForm(FlaskForm):
 	email = StringField('Email', validators=[DataRequired(), Email()] )
 	password = PasswordField('Password', validators=[DataRequired()] )
